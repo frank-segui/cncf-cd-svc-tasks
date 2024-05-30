@@ -5,4 +5,3 @@ resources:
 - external-secrets-config.yml
 - echo-server.yml
 - reloader.yml
-- tekton.yml
