@@ -10,6 +10,7 @@ kubectl create namespace argocd || true
 kubectl create namespace external-secrets || true
 kubectl create namespace apps || true
 kubectl create namespace reloader || true
+kubectl create namespace tekton-pipelines || true
 
 # Deploy Argocd
 $SCRIPT_DIR/argocd/deploy.sh
