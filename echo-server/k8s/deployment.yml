@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: echo-secret-server
+  namespace: apps
+  annotations:
+    reloader.stakater.com/auto: "true"
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: echo-secret-server
+  template:
+    metadata:
+      labels:
+        app: echo-secret-server
+    spec:
+      containers:
+      - name: echo-secret-server
+        image: echo-secret-server:1.0.0
+        ports:
+        - containerPort: 3000
+        env:
+        - name: SVC_TASK_SECRET1
+          valueFrom:
+            secretKeyRef:
+              name: super-secret
+              key: SVC_TASK_SECRET1
+        - name: SVC_TASK_SECRET2
+          valueFrom:
+            secretKeyRef:
+              name: super-secret
+              key: SVC_TASK_SECRET2
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "250m"
+          limits:
+            memory: "64Mi"
+            cpu: "250m"

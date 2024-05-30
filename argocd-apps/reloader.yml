@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: reloader
+  namespace: argocd
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
+spec:
+  destination:
+    namespace: reloader
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    repoURL: https://github.com/stakater/Reloader
+    targetRevision: HEAD
+    path: 'deployments/kubernetes'
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
