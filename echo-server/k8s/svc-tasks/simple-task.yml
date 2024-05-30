@@ -1,0 +1,12 @@
+apiVersion: tekton.dev/v1beta1
+kind: Task
+metadata:
+  name: simple-echo-task
+  namespace: apps
+spec:
+  steps:
+    - name: echo-hello
+      image: serv-tasks:1.0.0
+      script: |
+        #!/bin/sh
+        echo "Hello from Tekton!"
