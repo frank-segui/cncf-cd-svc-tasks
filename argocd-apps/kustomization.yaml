@@ -3,5 +3,5 @@ kind: Kustomization
 resources:
 - external-secrets.yml
 - external-secrets-config.yml
-- echo-secret-server.yml
+- echo-server.yml
 - reloader.yml
