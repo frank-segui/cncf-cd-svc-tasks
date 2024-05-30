@@ -18,3 +18,5 @@ $SCRIPT_DIR/argocd/deploy.sh
 # Setup External Secrets
 $SCRIPT_DIR/external-secrets/deploy.sh
 
+# Deploy Tekton
+$SCRIPT_DIR/tekton/deploy.sh
